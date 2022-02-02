@@ -27,7 +27,6 @@ jobs:
               Export_cache_dir="pluto_state_cache",
               Export_baked_notebookfile=false,
               Export_baked_state=false,
-                    # more parameters can go here
                   )'
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
