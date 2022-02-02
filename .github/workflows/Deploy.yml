@@ -20,7 +20,7 @@ jobs:
       uses: julia-actions/setup-julia@v1
       with:
         version: 1.7
-      run:  julia -e '
+    - run:  julia -e '
             using Pkg; Pkg.activate("."); Pkg.instantiate();
             import PlutoSliderServer      
             PlutoSliderServer.github_action(".";
