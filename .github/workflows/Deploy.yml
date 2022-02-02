@@ -22,12 +22,12 @@ jobs:
         version: 1.7
     - run:  julia -e '
             using Pkg; Pkg.activate("."); Pkg.instantiate();
-            import PlutoSliderServer      
+            import PlutoSliderServer;      
             PlutoSliderServer.github_action(".";
-              Export_cache_dir="pluto_state_cache",
+              Export_cache_dir="pluto_state_cache",1
               Export_baked_notebookfile=false,
               Export_baked_state=false,
-                  )
+                  );
             using NodeJS;
             run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
