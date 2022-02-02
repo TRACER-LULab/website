@@ -23,7 +23,7 @@ jobs:
     - name: Install Julia
       uses: julia-actions/setup-julia@v1
       with:
-        version: 1.6
+        version: 1.7
     # NOTE
     #   The steps below ensure that NodeJS and Franklin are loaded then it
     #   installs highlight.js which is needed for the prerendering step
@@ -34,6 +34,14 @@ jobs:
     #   specific arguments, see the documentation or ?optimize in the REPL.
     - run: julia -e '
             using Pkg; Pkg.activate("."); Pkg.instantiate();
+
+            import PlutoSliderServer      
+            PlutoSliderServer.github_action(".";
+              Export_cache_dir="pluto_state_cache",
+              Export_baked_notebookfile=false,
+                    Export_baked_state=false,
+                    # more parameters can go here
+                  )'
             using NodeJS; run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
             optimize()'
