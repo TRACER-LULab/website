@@ -23,12 +23,6 @@ jobs:
     - run:  julia -e '
             using Pkg; Pkg.activate("."); Pkg.instantiate();
             import PlutoSliderServer;      
-            # PlutoSliderServer.github_action(".";
-            #  Export_cache_dir="pluto_state_cache",
-            #  Export_baked_notebookfile=false,
-            #  Export_baked_state=false,
-            #      );
-            using NodeJS;
             run(`$(npm_cmd()) install highlight.js`);
             using Franklin;
             optimize()'
